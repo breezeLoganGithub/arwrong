@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- three.js library -->
+    <script src='lib/three.js'></script>
+    <script src="lib/inflate.min.js"></script>
+    <script src='lib/stats.min.js'></script>
+    <script src='lib/FBXLoader.js'></script>
+    <script src='lib/AnimationUtils.js'></script>
+    <!-- jsartookit -->
+    <script src='lib/artoolkit.min.js'></script>
+    <script src='lib/artoolkit.api.js'></script>
+    <!-- include threex.artoolkit -->
+
+    <script src='lib/threex-artoolkitsource.js'></script>
+    <script src='lib/threex-artoolkitcontext.js'></script>
+    <script src='lib/threex-artoolkitprofile.js'></script>
+    <script src='lib/threex-arbasecontrols.js'></script>
+    <script src='lib/threex-armarkercontrols.js'></script>
+    <script src='lib/threex-arsmoothedcontrols.js'></script>
+    <script>THREEx.ArToolkitContext.baseURL = '../'</script>
+    <script src="script/app.js"></script>
+    <script src="script/justmodule.js"></script>
+    <script src="script/cardOper.js"></script>
+    <script src="script/FBXOper.js"></script>
+    <script type="text/javascript" src="script/systemtools.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div style='position: absolute; top: 10px; width:100%; text-align: center;z-index:1';>
+        <a href='https://github.com/jeromeetienne/AR.js/' target='_blank'>AR.js</a> - developement playground
+        <br/>
+        Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
+    </div>
+
+    <!--上边缘的按钮-->
+    <div class="headbuttoncontainer">
+        <button style="background:url(image/btn-test.png) no-repeat;" value = "测试" id="btn-test"></button>
+    </div>
+
+
+    <script>
+
+        var result = detectBrowser();
+        window.os = result;
+        if (result){
+
+            var app = new APP();
+            //var app = new PureApp();
+            var container = app.getContainer();
+
+            //设置卡片
+            cardOper = new CardOper(container);
+            cardOper.setCard(4,1.5,1.5,-1.0);
+            cardOper.showCard("demo", 'image/waitting1.png');
+
+            var fbxAnimation = new FBXOper(container,app);
+            fbxAnimation.loadObject('module/nv01.fbx',null,0.04);
+            //fbxAnimation.loadObject('module/nv01.fbx',null,1);
+        }
+    </script>
+    <script src="script/btn-test.js"></script>
+</body>
