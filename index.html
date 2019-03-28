@@ -48,14 +48,14 @@
 
             var app = new APP();
             //var app = new PureApp();
-            var container = app.getContainer();
 
-            //设置卡片
+            var container = app.getContainer();
             cardOper = new CardOper(container);
             cardOper.setCard(4,1.5,1.5,-1.0);
             cardOper.showCard("demo", 'image/waitting1.png');
 
             var fbxAnimation = new FBXOper(container,app);
+
             fbxAnimation.loadObject('module/nv01.fbx',null,0.04);
             //fbxAnimation.loadObject('module/nv01.fbx',null,1);
         }
